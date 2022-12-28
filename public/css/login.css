@@ -272,9 +272,10 @@
   }
 
   .login-form>p:nth-child(3) {
-    padding-top: 16px;
+    /* padding-top: 16px; */
   }
-  #start {
+
+  #join {
     font-weight: bold;
     padding: 20px 20px;
     color: white;
@@ -286,6 +287,6 @@
     transition: background 1s;
   }
 
-  #start:hover {
+  #join:hover {
     background: rgba(255, 255, 255, 0.4);
   }
