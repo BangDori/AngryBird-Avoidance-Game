@@ -10,28 +10,30 @@
     <title>Loading</title>
 </head>
 <body>
-    <div class="noite"></div>
-    <div class="constelacao"></div>
-    <div class="lua">
-        <div class="textura"></div>
+    <div id="wrapper">
+        <div class="noite"></div>
+        <div class="constelacao"></div>
+        <div class="lua">
+            <div class="textura"></div>
+        </div>
+        <div class="chuvaMeteoro"></div>
+        <div class="floresta">
+            <img src="https://raw.githubusercontent.com/interaminense/starry-sky/master/src/img/bgTree.png" alt="" />
+        </div>
+    
+        <div class="login-box">
+            <form class="login-form"action="index" method="post">
+                <p>Hello, Player.</p>
+    
+                <p>Name: <input id="naming" type="text" value=""/></p>
+                <p><button id="start">Join</button></p>
+            </form>
+        </div>
+    
+        <footer style="color: white;">
+            Copyright 2022. BangDori All rights reserved.
+        </footer>
     </div>
-    <div class="chuvaMeteoro"></div>
-    <div class="floresta">
-        <img src="https://raw.githubusercontent.com/interaminense/starry-sky/master/src/img/bgTree.png" alt="" />
-    </div>
-
-    <div class="login-box">
-        <form class="login-form"action="index" method="post">
-            <p>Hello, Player.</p>
-
-            <p>Name: <input id="naming" type="text" value=""/></p>
-            <p><button id="start">Join</button></p>
-        </form>
-    </div>
-
-    <footer style="color: white;">
-        Copyright 2022. BangDori All rights reserved.
-    </footer>
 </body>
 <script src="js/background.js"></script>
 <script src="js/start.js"></script>
