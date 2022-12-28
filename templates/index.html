@@ -4,12 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index_style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/character.css">
+    <link rel="stylesheet" href="css/frame.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <title>Ball Avoidance</title>
 </head>
 <body>
-    <div id="character">
-        <img src="" alt="">
+    <div id="wrapper">
+        <section id="menu">
+            <!-- Game Title -->
+            <header>
+                <span id="title">Ball Avoidance</span>
+            </header>
+
+            <!-- Menu Bar -->
+            <article>
+                <div class="start"><span>Start</span></div>
+                <div class="history"><span onclick="alert('Sorry, Not Implemented')">History</span></div>
+                <div class="exit"><span><a href="../">Exit</a></span></div>
+            </article>
+        </section>
+
+        <section id="start" style="display: none;">
+            <!-- Survival Time -->
+            <header>
+                <div class="survival-time"></div>
+            </header>
+
+            <!-- Character and Enemies -->
+            <main>
+                <div id="character"></div>    
+            </main>
+        </section>
+
+        <section id="history" style="display: none;">
+            <!-- Ranked during session -->
+            <header></header>
+
+            <!-- Survival Time during session -->
+            <article></article>
+        </section>
+
+        <footer>
+            Copyright 2022. BangDori All rights reserved.
+        </footer>
     </div>
 </body>
 <script src="js/charcater.js"></script>
