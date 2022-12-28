@@ -1,0 +1,9 @@
+footer {
+    font-family: none !important;
+    position: absolute;
+
+    bottom: 5px;
+    right: 5px;
+
+    font-size: 12px;
+}
