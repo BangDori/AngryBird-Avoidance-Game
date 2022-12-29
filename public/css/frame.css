@@ -1,0 +1,15 @@
+html, body {
+    padding: 0;
+    margin: 0;   
+}
+
+#wrapper {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-image: -moz-linear-gradient(0deg, rgb(199, 251, 255), rgb(255, 199, 235));
+    background-image: -webkit-linear-gradient(0deg, rgb(199, 251, 255), rgb(255, 199, 235));
+    background-image: linear-gradient(0deg, rgb(199, 251, 255), rgb(255, 199, 235));
+}
