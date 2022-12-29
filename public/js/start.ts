@@ -1,16 +1,19 @@
-const START = document.querySelector("#start");
+function startGame() {
+    menu?.classList.add(ANI);
 
-function init() {
-    START?.addEventListener("click", (e) => {
-        const userName = (<HTMLInputElement>document.querySelector("#naming")).value;
-
-        console.log(userName.length);
-
-        if(userName.length < 1 || userName.length > 8) {
-            alert('Input Name length: 0~8');
-            e.preventDefault();
-            e.stopPropagation();    
-        }
-    });
+    setTimeout(function() {
+        menu?.classList.remove(ANI);
+        menu?.classList.add(NONE);
+        start?.classList.remove(NONE);
+    }, 800)
 }
-init();
+
+function openHistory() {
+    menu?.classList.add(ANI);
+
+    setTimeout(function() {
+        menu?.classList.remove(ANI);
+        menu?.classList.add(NONE);
+        record?.classList.remove(NONE);
+    }, 800)
+}
