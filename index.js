@@ -58,6 +58,6 @@ router.post("/index", (req, res) => {
 })
 
 app.use("/", router);
-app.listen(3000);
+app.listen(port);
 
-console.log("Running at Port 3000");
+console.log(`Running at Port ${port}`);
