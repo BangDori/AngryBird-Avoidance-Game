@@ -1,0 +1,45 @@
+#history {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#history header {
+    padding-top: 80px;
+
+    font-size: 64px;
+}
+
+#history article {
+    margin: 48px 0;
+    border: 3px solid lightgreen;
+    width: 540px;
+    /* height: 480px; */
+    text-align: center;
+}
+
+article table {
+    border-collapse: collapse;
+    margin: 16px auto;
+
+    font-size: 28px;
+}
+
+article table tr {
+    border-bottom: 1px solid black;
+}
+
+article table tr,
+article table td {
+    padding: 16px 48px;
+}
+
+article button {
+    font-size: 24px;
+    width: 128px;
+    margin: 32px 0 16px;
+    border-radius: 10%;
+    border: 1px solid gray;
+
+    cursor: pointer;
+}
