@@ -6,6 +6,8 @@ function startGame() {
         menu === null || menu === void 0 ? void 0 : menu.classList.add(NONE);
         start === null || start === void 0 ? void 0 : start.classList.remove(NONE);
     }, 800);
+    makePlayer();
+    circle === null || circle === void 0 ? void 0 : circle.classList.remove(HIDDEN);
 }
 function openHistory() {
     menu === null || menu === void 0 ? void 0 : menu.classList.add(ANI);

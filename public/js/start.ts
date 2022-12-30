@@ -6,6 +6,9 @@ function startGame() {
         menu?.classList.add(NONE);
         start?.classList.remove(NONE);
     }, 800)
+
+    makePlayer();
+    circle?.classList.remove(HIDDEN);
 }
 
 function openHistory() {
