@@ -107,6 +107,7 @@
     "./public/js/join.ts",
     "./public/js/pause.ts",
     "./public/js/start.ts",
-    "./public/js/time.ts"
+    "./public/js/time.ts",
+    "./public/js/history.ts"
   ]
 }
