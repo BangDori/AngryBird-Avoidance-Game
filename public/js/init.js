@@ -1,6 +1,6 @@
 "use strict";
 const menu = document.querySelector("#menu"), start_button = menu === null || menu === void 0 ? void 0 : menu.querySelector(".start"), start = document.querySelector("#start"), history_button = menu === null || menu === void 0 ? void 0 : menu.querySelector(".history"), record = document.querySelector("#history"), // history
-pause = document.querySelector(".pause"), modal = document.querySelector(".js-modal"), restart = document.querySelector(".restart"), home = document.querySelectorAll(".home");
+pause = document.querySelector(".pause"), modal = document.querySelector(".js-modal"), restart = document.querySelector(".restart"), home = document.querySelectorAll(".home"), join = document.querySelector("#join");
 const ANI = "animation";
 const NONE = "none";
 function init() {
@@ -18,6 +18,15 @@ function init() {
             goHome();
             modal === null || modal === void 0 ? void 0 : modal.classList.add(NONE);
         });
+    });
+    join === null || join === void 0 ? void 0 : join.addEventListener("click", (e) => {
+        const userName = document.querySelector("#naming").value;
+        console.log(userName.length);
+        if (userName.length < 1 || userName.length > 8) {
+            alert('Input Name length: 0~8');
+            e.preventDefault();
+            e.stopPropagation();
+        }
     });
 }
 init();

@@ -6,7 +6,8 @@ const menu = document.querySelector("#menu"),
     pause = document.querySelector(".pause"),
     modal = document.querySelector(".js-modal"),
     restart = document.querySelector(".restart"),
-    home = document.querySelectorAll(".home");
+    home = document.querySelectorAll(".home"),
+    join = document.querySelector("#join");
 
 const ANI = "animation";
 const NONE = "none";
@@ -27,6 +28,17 @@ function init() {
             modal?.classList.add(NONE);    
         })
     })
+    join?.addEventListener("click", (e) => {
+        const userName = (<HTMLInputElement>document.querySelector("#naming")).value;
+
+        console.log(userName.length);
+
+        if(userName.length < 1 || userName.length > 8) {
+            alert('Input Name length: 0~8');
+            e.preventDefault();
+            e.stopPropagation();    
+        }
+    });
 }
 
 init();
