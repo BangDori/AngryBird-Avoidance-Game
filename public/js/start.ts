@@ -5,10 +5,10 @@ function startGame() {
         menu?.classList.remove(ANI);
         menu?.classList.add(NONE);
         start?.classList.remove(NONE);
+        circle?.classList.remove(HIDDEN);
     }, 800)
 
-    makePlayer();
-    circle?.classList.remove(HIDDEN);
+    interval = setInterval(() => { startTimer(); }, 1000);
 }
 
 function openHistory() {

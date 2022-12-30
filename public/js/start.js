@@ -5,9 +5,9 @@ function startGame() {
         menu === null || menu === void 0 ? void 0 : menu.classList.remove(ANI);
         menu === null || menu === void 0 ? void 0 : menu.classList.add(NONE);
         start === null || start === void 0 ? void 0 : start.classList.remove(NONE);
+        circle === null || circle === void 0 ? void 0 : circle.classList.remove(HIDDEN);
     }, 800);
-    makePlayer();
-    circle === null || circle === void 0 ? void 0 : circle.classList.remove(HIDDEN);
+    interval = setInterval(() => { startTimer(); }, 1000);
 }
 function openHistory() {
     menu === null || menu === void 0 ? void 0 : menu.classList.add(ANI);
