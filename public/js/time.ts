@@ -5,7 +5,7 @@ let died = false;
 var timer = 0;
 var second = 0;
 var minute = 0;
-var interval = setInterval(() => { startTimer(); }, 1000);
+let interval: number; 
 
 function startTimer() {
     if(second >= 60) {
