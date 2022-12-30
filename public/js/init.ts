@@ -9,7 +9,7 @@ const menu = document.querySelector("#menu"),
     home = document.querySelectorAll(".home"),
     join = document.querySelector("#join"),
     direction = document.querySelector(".wrapper");
-
+    
 const ANI = "animation";
 const NONE = "none";
 const HIDDEN = "hidden";
@@ -31,14 +31,13 @@ function init() {
     join?.addEventListener("click", (e) => {
         const userName = (<HTMLInputElement>document.querySelector("#naming")).value;
 
-        console.log(userName.length);
-
         if(userName.length < 1 || userName.length > 8) {
             alert('Input Name length: 0~8');
             e.preventDefault();
             e.stopPropagation();    
         }
     });
+    makePlayer();
     window?.addEventListener("keydown", Player.movePlayer);
 }
 
