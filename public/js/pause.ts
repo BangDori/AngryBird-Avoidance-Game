@@ -1,4 +1,9 @@
 
+function clickPause() {
+    modal?.classList.remove(NONE);
+    stopTimer();
+}
+
 function goHome() {
     var nextSibling = menu?.nextElementSibling;
     while(nextSibling?.classList.contains(NONE))  {
@@ -7,8 +12,13 @@ function goHome() {
 
     nextSibling?.classList.add(NONE);
     menu?.classList.remove(NONE);
+    resetTimer();
 }
 
 function reStart() {
-    // game restart
+    if(died === true) {
+        resetTimer();
+        died = false;
+    }
+    interval = setInterval(startTimer, 1000);
 }
