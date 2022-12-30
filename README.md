@@ -4,7 +4,7 @@ Ball avoidance web game using your keyboard directions
 ## Tools
 Visual Studio Code, Node.js
 
-## Game Setting
+## Setting Modules
 ~~~
 npm init -y
 npm install express, ejs
