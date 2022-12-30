@@ -7,17 +7,17 @@ const menu = document.querySelector("#menu"),
     modal = document.querySelector(".js-modal"),
     restart = document.querySelector(".restart"),
     home = document.querySelectorAll(".home"),
-    join = document.querySelector("#join");
+    join = document.querySelector("#join"),
+    direction = document.querySelector(".wrapper");
 
 const ANI = "animation";
 const NONE = "none";
+const HIDDEN = "hidden";
 
 function init() {
     start_button?.addEventListener("click", startGame);
     history_button?.addEventListener("click", openHistory);
-    pause?.addEventListener("click", () => {
-        modal?.classList.remove(NONE);
-    })
+    pause?.addEventListener("click", clickPause);
     restart?.addEventListener("click", () => {
         reStart();
         modal?.classList.add(NONE);
@@ -39,6 +39,7 @@ function init() {
             e.stopPropagation();    
         }
     });
+    window?.addEventListener("keydown", Player.movePlayer);
 }
 
 init();
