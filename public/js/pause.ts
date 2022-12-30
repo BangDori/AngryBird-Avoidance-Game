@@ -13,6 +13,7 @@ function goHome() {
     nextSibling?.classList.add(NONE);
     menu?.classList.remove(NONE);
     resetTimer();
+    circle?.classList.add(HIDDEN);
 }
 
 function reStart() {

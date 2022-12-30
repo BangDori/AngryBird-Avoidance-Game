@@ -11,6 +11,7 @@ function goHome() {
     nextSibling === null || nextSibling === void 0 ? void 0 : nextSibling.classList.add(NONE);
     menu === null || menu === void 0 ? void 0 : menu.classList.remove(NONE);
     resetTimer();
+    circle === null || circle === void 0 ? void 0 : circle.classList.add(HIDDEN);
 }
 function reStart() {
     if (died === true) {
