@@ -1,5 +1,8 @@
 # BallAvoidanceGame
-Ball avoidance web game using keyboard directions
+Ball avoidance web game using your keyboard directions
+
+## Tools
+Visual Code, Node.js
 
 ## Game Setting
 ~~~
