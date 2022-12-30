@@ -103,9 +103,10 @@
   },
   "files": [
     "./public/js/character.ts",
-    // "./public/js/join.ts",
-    "./public/js/start.ts",
-    "./public/js/pause.ts",
     "./public/js/init.ts",
+    "./public/js/join.ts",
+    "./public/js/pause.ts",
+    "./public/js/start.ts",
+    "./public/js/time.ts"
   ]
 }
