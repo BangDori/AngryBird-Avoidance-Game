@@ -17,7 +17,12 @@
 }
 
 .none {
+    /* visibility: hidden; */
     display: none !important;
+}
+
+.hidden {
+    opacity: 0;
 }
 
 .modal {
