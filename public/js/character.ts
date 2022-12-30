@@ -3,7 +3,7 @@ const speed = 5;
 var x_pos:number, y_pos:number;
 
 // Player 명 작성
-var player: Player;
+let player: Player;
 
 function makePlayer() {    
     var bodyRect = document.body.getBoundingClientRect(),
@@ -14,9 +14,9 @@ function makePlayer() {
         x_pos = circleRect.left - bodyRect.left;
     }
 
-    player = new Player("player", x_pos, y_pos);
-    console.log("Player Created!");
-    console.log(`Player pos(x: ${player.x_pos}, y: ${player.y_pos})`);
+    player = new Player(`${(<HTMLInputElement>document.querySelector("#username")).value}`, x_pos, y_pos);
+    console.log(`${player.name} Created!`);
+    // console.log(`Player pos(x: ${player.x_pos}, y: ${player.y_pos})`);
 }
 
 class Player {
@@ -33,9 +33,10 @@ class Player {
         this.record.push(record);
 
         if(this.record.length > 1) {
-            this.record.sort();
+            this.record.sort((one, two) => (one > two ? -1 : 1));
         }
-        console.log(this.record);
+
+        insertToTable(this.record);
     }
 
     static movePlayer(e: any) {
@@ -55,6 +56,6 @@ class Player {
             circle.style.left = `${x_pos}px`;
             circle.style.top = `${y_pos}px`;    
         }
-        console.log(`x: ${x_pos}, y: ${y_pos}`);
+        // console.log(`x: ${x_pos}, y: ${y_pos}`);
     }
 }

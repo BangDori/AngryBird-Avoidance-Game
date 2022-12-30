@@ -3,16 +3,16 @@ const circle = document.querySelector("#character");
 const speed = 5;
 var x_pos, y_pos;
 // Player 명 작성
-var player;
+let player;
 function makePlayer() {
     var bodyRect = document.body.getBoundingClientRect(), circleRect = circle === null || circle === void 0 ? void 0 : circle.getBoundingClientRect();
     if (circleRect instanceof DOMRect) {
         y_pos = circleRect.top - bodyRect.top;
         x_pos = circleRect.left - bodyRect.left;
     }
-    player = new Player("player", x_pos, y_pos);
-    console.log("Player Created!");
-    console.log(`Player pos(x: ${player.x_pos}, y: ${player.y_pos})`);
+    player = new Player(`${document.querySelector("#username").value}`, x_pos, y_pos);
+    console.log(`${player.name} Created!`);
+    // console.log(`Player pos(x: ${player.x_pos}, y: ${player.y_pos})`);
 }
 class Player {
     constructor(name, x_pos, y_pos) {
@@ -24,9 +24,9 @@ class Player {
     insertRecord(record) {
         this.record.push(record);
         if (this.record.length > 1) {
-            this.record.sort();
+            this.record.sort((one, two) => (one > two ? -1 : 1));
         }
-        console.log(this.record);
+        insertToTable(this.record);
     }
     static movePlayer(e) {
         // console.log(e.key);
@@ -52,6 +52,6 @@ class Player {
             circle.style.left = `${x_pos}px`;
             circle.style.top = `${y_pos}px`;
         }
-        console.log(`x: ${x_pos}, y: ${y_pos}`);
+        // console.log(`x: ${x_pos}, y: ${y_pos}`);
     }
 }
