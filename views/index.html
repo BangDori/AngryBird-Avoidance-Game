@@ -17,6 +17,7 @@
     <link href="img/apple.png" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
+    <input id="username" type="hidden" value="<%=user_name%>">
     <div id="wrapper">
         <section id="menu">
             <!-- Game Title -->
@@ -61,29 +62,35 @@
                     <thead>
                         <tr>
                             <th>Rank</th>
+                            <th>Name</th>
                             <th>Survived Time</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1st</td>
-                            <td>12:07</td>
+                        <tr class="rank-1 none">
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
-                        <tr>
-                            <td>2nd</td>
-                            <td>8:46</td>
+                        <tr class="rank-2 none">
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
-                        <tr>
-                            <td>3rd</td>
-                            <td>6:12</td>
+                        <tr class="rank-3 none">
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
-                        <tr>
-                            <td>4th</td>
-                            <td>4:03</td>
+                        <tr class="rank-4 none">
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
-                        <tr>
-                            <td>5th</td>
-                            <td>1:59</td>
+                        <tr class="rank-5 none">
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
@@ -121,4 +128,5 @@
 <script src="js/pause.js"></script>
 <script src="js/init.js"></script>
 <script src="js/time.js"></script>
+<script src="js/history.js"></script>
 </html> 
