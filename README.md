@@ -6,10 +6,10 @@ Visual Studio Code, Node.js
 
 ## Setting Modules
 ~~~
-npm init -y
-npm install express, ejs
-npm install nodemon --save-dev
+> npm init -y
+> npm install express, ejs
+> npm install nodemon --save-dev
 ~~~
 
 ## Game Start
-`tsc & nodemon index.js`
+`> tsc & nodemon index.js`
