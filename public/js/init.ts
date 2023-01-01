@@ -38,7 +38,13 @@ function init() {
         }
     });
     makePlayer();
-    window?.addEventListener("keydown", Player.movePlayer);
+    // window?.addEventListener("keydown", Player.movePlayer);
+    window?.addEventListener("keydown", (e) => {
+        updateKeyStates(e.key, true);
+    })
+    window?.addEventListener("keyup", (e) => {
+        updateKeyStates(e.key, false);
+    })
 }
 
 init();

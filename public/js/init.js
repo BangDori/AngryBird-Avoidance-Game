@@ -27,6 +27,12 @@ function init() {
         }
     });
     makePlayer();
-    window === null || window === void 0 ? void 0 : window.addEventListener("keydown", Player.movePlayer);
+    // window?.addEventListener("keydown", Player.movePlayer);
+    window === null || window === void 0 ? void 0 : window.addEventListener("keydown", (e) => {
+        updateKeyStates(e.key, true);
+    });
+    window === null || window === void 0 ? void 0 : window.addEventListener("keyup", (e) => {
+        updateKeyStates(e.key, false);
+    });
 }
 init();
