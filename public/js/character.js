@@ -28,30 +28,36 @@ class Player {
         }
         insertToTable(this.record);
     }
-    static movePlayer(e) {
-        // console.log(e.key);
-        switch (e.key) {
-            // ArrowRight
-            case 'ArrowRight':
-                x_pos += speed;
-                break;
-            // ArrowLeft
-            case 'ArrowLeft':
-                x_pos -= speed;
-                break;
-            // ArrowUp
-            case 'ArrowUp':
-                y_pos -= speed;
-                break;
-            // ArrowDown
-            case 'ArrowDown':
-                y_pos += speed;
-                break;
-        }
+    static movePlayer() {
+        if (keyStates.right)
+            x_pos += speed;
+        else if (keyStates.left)
+            x_pos -= speed;
+        if (keyStates.up)
+            y_pos -= speed;
+        else if (keyStates.down)
+            y_pos += speed;
         if (circle) {
             circle.style.left = `${x_pos}px`;
             circle.style.top = `${y_pos}px`;
         }
         // console.log(`x: ${x_pos}, y: ${y_pos}`);
     }
+}
+var keyStates = {
+    right: false,
+    left: false,
+    up: false,
+    down: false
+};
+function updateKeyStates(key, state) {
+    if (key === 'ArrowRight')
+        keyStates.right = state;
+    else if (key === 'ArrowLeft')
+        keyStates.left = state;
+    else if (key === 'ArrowUp')
+        keyStates.up = state;
+    else if (key === 'ArrowDown')
+        keyStates.down = state;
+    Player.movePlayer();
 }
