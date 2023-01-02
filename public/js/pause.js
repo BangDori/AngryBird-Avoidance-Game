@@ -3,6 +3,7 @@ function clickPause() {
     modal === null || modal === void 0 ? void 0 : modal.classList.remove(NONE);
     stopTimer();
     stopEnemies();
+    clearInterval(player.interval);
 }
 function goHome() {
     var nextSibling = menu === null || menu === void 0 ? void 0 : menu.nextElementSibling;
@@ -22,4 +23,5 @@ function reStart() {
     }
     interval = setInterval(startTimer, 1000);
     startEnemies();
+    player.movePlayer();
 }

@@ -1,8 +1,8 @@
-
 function clickPause() {
     modal?.classList.remove(NONE);
     stopTimer();
     stopEnemies();
+    clearInterval(player.interval);
 }
 
 function goHome() {
@@ -23,6 +23,8 @@ function reStart() {
         resetTimer();
         died = false;
     }
+
     interval = setInterval(startTimer, 1000);
     startEnemies();
+    player.movePlayer();
 }
