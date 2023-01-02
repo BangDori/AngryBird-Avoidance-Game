@@ -1,5 +1,5 @@
 # AngryBird Avoidance Game
-Ball avoidance web game using your keyboard directions
+AngryBird avoidance web game using your keyboard directions
 
 ## Tools
 Visual Studio Code, Node.js
