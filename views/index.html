@@ -38,19 +38,27 @@
         </section>
 
         <section id="start" class="none">
-            <!-- Survival Time -->
             <header>
+                <!-- Survival Time -->
                 <div class="survival-time">00:00</div>
+                <!-- Pause Button -->
+                <nav>
+                    <button class="pause"><img src="img/pause.png"></button>
+                </nav>
             </header>
 
             <!-- Test Die Button -->
-            <button id="die" style="cursor: pointer">die</button>
+            <!-- <button id="die" style="cursor: pointer">die</button> -->
 
-            <!-- Pause Button -->
-            <nav>
-                <button class="pause"><img src="img/pause.png"></button>
-            </nav>
+            <!-- Enemies -->
+            <main id="enemies"></main>
+
         </section>
+
+        <!-- Character -->
+        <main>
+            <div id="character" class="hidden"></div>
+        </main>
 
         <section id="history" class="none">
             <!-- Ranked during session -->
@@ -99,11 +107,6 @@
             </article>
         </section>
 
-        <!-- Character and Enemies -->
-        <main>
-            <div id="character" class="hidden"></div>
-        </main>
-
         <aside class="js-modal none">
             <div class="modal">
                 <div class="pause-box">
@@ -129,4 +132,5 @@
 <script src="js/init.js"></script>
 <script src="js/time.js"></script>
 <script src="js/history.js"></script>
+<script src="js/enemies.js"></script>
 </html> 
