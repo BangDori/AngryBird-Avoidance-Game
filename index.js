@@ -47,10 +47,6 @@ app.engine('html', require('ejs').renderFile)
 app.set("view engine", "html");
 app.set("views", path.join(__dirname, "/views"));
 
-// router.get("https://venerable-melba-bb7ad5.netlify.app/", (req, res) => {
-//     res.render("login");
-// })
-
 router.get("/", (req, res) => {
     res.render("login");
 })
