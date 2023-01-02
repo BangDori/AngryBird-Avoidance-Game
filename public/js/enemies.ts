@@ -10,15 +10,28 @@ class Monster implements MonsterInfo {
     public x_dir = 0;
     public y_dir = 0;
     public interval: number = 0;
+    public size?: number;
 
     constructor(
         public type: string,
         public name: string,
     ) {
-        if(type === 'monsterA') this.speed = 8;
-        else if(type === 'monsterB') this.speed = 5;
-        else if(type === 'monsterC') this.speed = 3;
-        else this.speed = 2;
+        if(type === 'monsterA') {
+            this.speed = 8;
+            this.size = 30;
+        }
+        else if(type === 'monsterB') {
+            this.speed = 5;
+            this.size = 22.5;
+        }
+        else if(type === 'monsterC') {
+            this.speed = 3;
+            this.size = 17.5;
+        }
+        else {
+            this.speed = 2;
+            this.size = 15;
+        }
 
         this.makeHTMLEnemy();
         monsters.addMonster(this);
@@ -186,5 +199,13 @@ function moveMonster(monster: Monster) {
 
         (<HTMLElement>mon).style.top = `${y_pos}px`;
         (<HTMLElement>mon).style.left = `${x_pos}px`;
+
+        let x_dis = (x_pos+monster.size!) - player.x_pos;
+        let y_dis = (y_pos+monster.size!) - player.y_pos;
+        let distance = x_dis * x_dis + y_dis * y_dis;
+
+        if(Math.sqrt(distance) <= Math.floor(monster.size!)+1) {
+            dieGamer();
+        }
     }, 10)
 }
