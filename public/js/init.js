@@ -16,6 +16,9 @@ function init() {
         h === null || h === void 0 ? void 0 : h.addEventListener("click", () => {
             goHome();
             modal === null || modal === void 0 ? void 0 : modal.classList.add(NONE);
+            if (!(record === null || record === void 0 ? void 0 : record.classList.contains(NONE))) {
+                record === null || record === void 0 ? void 0 : record.classList.add(NONE);
+            }
         });
     });
     join === null || join === void 0 ? void 0 : join.addEventListener("click", (e) => {

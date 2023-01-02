@@ -25,7 +25,11 @@ function init() {
     home.forEach((h) => {
         h?.addEventListener("click", () => {
             goHome();
-            modal?.classList.add(NONE);    
+            modal?.classList.add(NONE);
+
+            if(!record?.classList.contains(NONE)) {
+                record?.classList.add(NONE);
+            }
         })
     })
     join?.addEventListener("click", (e) => {
