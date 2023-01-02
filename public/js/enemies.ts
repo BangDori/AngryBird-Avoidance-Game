@@ -15,10 +15,10 @@ class Monster implements MonsterInfo {
         public type: string,
         public name: string,
     ) {
-        if(type === 'monsterA') this.speed = 30;
-        else if(type === 'monsterB') this.speed = 15;
-        else if(type === 'monsterD') this.speed = 10;
-        else this.speed = 5;
+        if(type === 'monsterA') this.speed = 8;
+        else if(type === 'monsterB') this.speed = 5;
+        else if(type === 'monsterC') this.speed = 3;
+        else this.speed = 2;
 
         this.makeHTMLEnemy();
         monsters.addMonster(this);
@@ -41,21 +41,21 @@ class Monster implements MonsterInfo {
         enemy.style.position = "absolute";
     
         if(loc === 'top') {
-            x_pos = Math.floor(Math.random() * (window.innerWidth - 50));
-            y_pos = 0;
+            this.x_pos = Math.floor(Math.random() * (window.innerWidth - 50));
+            this.y_pos = 0;
         } else if(loc === 'bottom') {
-            x_pos = Math.floor(Math.random() * (window.innerWidth - 50));
-            y_pos = window.innerHeight - 50;
+            this.x_pos = Math.floor(Math.random() * (window.innerWidth - 50));
+            this.y_pos = window.innerHeight - 50;
         } else if(loc === 'left') {
-            x_pos = 0;
-            y_pos = Math.floor(Math.random() * (window.innerHeight - 50));
+            this.x_pos = 0;
+            this.y_pos = Math.floor(Math.random() * (window.innerHeight - 50));
         } else {
-            x_pos = window.innerWidth - 50;
-            y_pos = Math.floor(Math.random() * (window.innerHeight - 50));
+            this.x_pos = window.innerWidth - 50;
+            this.y_pos = Math.floor(Math.random() * (window.innerHeight - 50));
         }
     
-        enemy.style.top = `${y_pos}px`;
-        enemy.style.left = `${x_pos}px`;
+        enemy.style.top = `${this.y_pos}px`;
+        enemy.style.left = `${this.x_pos}px`;
     
         enemies?.appendChild(enemy);
         this.settingMove();
@@ -64,8 +64,8 @@ class Monster implements MonsterInfo {
     private settingMove() {
         const dir = [-1, 1];
 
-        this.x_dir = speed * dir[Math.floor(Math.random() * 2)];
-        this.y_dir = speed * dir[Math.floor(Math.random() * 2)];
+        this.x_dir = this.speed! * dir[Math.floor(Math.random() * 2)];
+        this.y_dir = this.speed! * dir[Math.floor(Math.random() * 2)];
     }
 }
 
@@ -96,7 +96,6 @@ class Monsters {
 
 const enemies = document.querySelector("#enemies");
 const monsters = new Monsters();
-
 let monsterA: number;
 let monsterB: number;
 let monsterC: number;

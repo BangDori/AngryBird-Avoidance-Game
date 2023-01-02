@@ -9,13 +9,13 @@ class Monster {
         this.y_dir = 0;
         this.interval = 0;
         if (type === 'monsterA')
-            this.speed = 30;
+            this.speed = 8;
         else if (type === 'monsterB')
-            this.speed = 15;
-        else if (type === 'monsterD')
-            this.speed = 10;
-        else
             this.speed = 5;
+        else if (type === 'monsterC')
+            this.speed = 3;
+        else
+            this.speed = 2;
         this.makeHTMLEnemy();
         monsters.addMonster(this);
     }
@@ -32,30 +32,30 @@ class Monster {
         const loc = startPosition[Math.floor(Math.random() * 4)];
         enemy.style.position = "absolute";
         if (loc === 'top') {
-            x_pos = Math.floor(Math.random() * (window.innerWidth - 50));
-            y_pos = 0;
+            this.x_pos = Math.floor(Math.random() * (window.innerWidth - 50));
+            this.y_pos = 0;
         }
         else if (loc === 'bottom') {
-            x_pos = Math.floor(Math.random() * (window.innerWidth - 50));
-            y_pos = window.innerHeight - 50;
+            this.x_pos = Math.floor(Math.random() * (window.innerWidth - 50));
+            this.y_pos = window.innerHeight - 50;
         }
         else if (loc === 'left') {
-            x_pos = 0;
-            y_pos = Math.floor(Math.random() * (window.innerHeight - 50));
+            this.x_pos = 0;
+            this.y_pos = Math.floor(Math.random() * (window.innerHeight - 50));
         }
         else {
-            x_pos = window.innerWidth - 50;
-            y_pos = Math.floor(Math.random() * (window.innerHeight - 50));
+            this.x_pos = window.innerWidth - 50;
+            this.y_pos = Math.floor(Math.random() * (window.innerHeight - 50));
         }
-        enemy.style.top = `${y_pos}px`;
-        enemy.style.left = `${x_pos}px`;
+        enemy.style.top = `${this.y_pos}px`;
+        enemy.style.left = `${this.x_pos}px`;
         enemies === null || enemies === void 0 ? void 0 : enemies.appendChild(enemy);
         this.settingMove();
     }
     settingMove() {
         const dir = [-1, 1];
-        this.x_dir = speed * dir[Math.floor(Math.random() * 2)];
-        this.y_dir = speed * dir[Math.floor(Math.random() * 2)];
+        this.x_dir = this.speed * dir[Math.floor(Math.random() * 2)];
+        this.y_dir = this.speed * dir[Math.floor(Math.random() * 2)];
     }
 }
 class Monsters {
