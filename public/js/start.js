@@ -9,6 +9,7 @@ function startGame() {
     }, 800);
     interval = setInterval(() => { startTimer(); }, 1000);
     startEnemies();
+    player.movePlayer();
 }
 function openHistory() {
     menu === null || menu === void 0 ? void 0 : menu.classList.add(ANI);
