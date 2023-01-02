@@ -24,12 +24,13 @@ function stopTimer() {
     clearInterval(interval);
 }
 
-die?.addEventListener("click", () => {
+function dieGamer() {
     died = true;
 
     player.insertRecord(timer - 1);
     clickPause();
-})
+    resetEnemies();
+}
 
 function resetTimer() {
     second = 0;
