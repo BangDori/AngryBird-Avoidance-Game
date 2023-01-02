@@ -45,7 +45,7 @@ app.use(bodyParser.json());
 
 app.engine('html', require('ejs').renderFile)
 app.set("view engine", "html");
-app.set("views", path.join(__dirname, "/views"));
+app.set("views", path.join(__dirname, "/public/views"));
 
 router.get("/", (req, res) => {
     res.render("login");
