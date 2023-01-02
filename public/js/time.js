@@ -1,5 +1,5 @@
 "use strict";
-const time = document.querySelector(".survival-time"), die = document.querySelector("#die");
+const time = document.querySelector(".survival-time");
 let died = false;
 var timer = 0;
 var second = 0;
