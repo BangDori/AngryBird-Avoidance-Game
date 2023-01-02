@@ -2,6 +2,7 @@
 function clickPause() {
     modal === null || modal === void 0 ? void 0 : modal.classList.remove(NONE);
     stopTimer();
+    stopEnemies();
 }
 function goHome() {
     var nextSibling = menu === null || menu === void 0 ? void 0 : menu.nextElementSibling;
@@ -12,6 +13,7 @@ function goHome() {
     menu === null || menu === void 0 ? void 0 : menu.classList.remove(NONE);
     resetTimer();
     circle === null || circle === void 0 ? void 0 : circle.classList.add(HIDDEN);
+    resetEnemies();
 }
 function reStart() {
     if (died === true) {
@@ -19,4 +21,5 @@ function reStart() {
         died = false;
     }
     interval = setInterval(startTimer, 1000);
+    startEnemies();
 }

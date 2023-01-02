@@ -2,6 +2,7 @@
 function clickPause() {
     modal?.classList.remove(NONE);
     stopTimer();
+    stopEnemies();
 }
 
 function goHome() {
@@ -14,6 +15,7 @@ function goHome() {
     menu?.classList.remove(NONE);
     resetTimer();
     circle?.classList.add(HIDDEN);
+    resetEnemies();
 }
 
 function reStart() {
@@ -22,4 +24,5 @@ function reStart() {
         died = false;
     }
     interval = setInterval(startTimer, 1000);
+    startEnemies();
 }
