@@ -8,6 +8,7 @@ function startGame() {
         circle === null || circle === void 0 ? void 0 : circle.classList.remove(HIDDEN);
     }, 800);
     interval = setInterval(() => { startTimer(); }, 1000);
+    startEnemies();
 }
 function openHistory() {
     menu === null || menu === void 0 ? void 0 : menu.classList.add(ANI);
