@@ -10,7 +10,6 @@ function makePlayer() {
         x_pos = circleRect.left - bodyRect.left;
     }
     player = new Player(`${document.querySelector("#username").value}`, x_pos, y_pos);
-    player.movePlayer();
 }
 class Player {
     constructor(name, x_pos, y_pos) {

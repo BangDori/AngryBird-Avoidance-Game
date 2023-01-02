@@ -14,7 +14,6 @@ function makePlayer() {
     }
 
     player = new Player(`${(<HTMLInputElement>document.querySelector("#username")).value}`, x_pos, y_pos);
-    player.movePlayer();
 }
 
 class Player {
