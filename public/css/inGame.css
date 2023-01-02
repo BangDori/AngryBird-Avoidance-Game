@@ -1,4 +1,16 @@
+#start {
+}
+
+#start>main {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
 #start .pause {
+    z-index: 31;
     border: none;
     background: none;
 
@@ -15,4 +27,48 @@
 
     font-size: 24px;
     padding-top: 16px;
+}
+
+#character {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 24px;
+    height: 24px;
+
+    border: 1px solid lightgreen;
+    background-color: lightgreen;
+    border-radius: 50%;
+}
+
+.monsterA {
+    width: 60px;
+    height: 60px;
+}
+
+.monsterB {
+    width: 45px;
+    height: 45px;
+}
+
+.monsterC {
+    width: 35px;
+    height: 35px;
+}
+
+.monsterD {
+    width: 30px;
+    height: 30px;
+}
+
+.rotate {
+    animation: rotate_monster 1s linear infinite;    
+}
+
+@keyframes rotate_monster {
+    100% {
+        transform: rotate(360deg);
+    }
 }
