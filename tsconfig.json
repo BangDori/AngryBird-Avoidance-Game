@@ -108,6 +108,7 @@
     "./public/js/pause.ts",
     "./public/js/start.ts",
     "./public/js/time.ts",
-    "./public/js/history.ts"
+    "./public/js/history.ts",
+    "./public/js/enemies.ts",
   ]
 }
