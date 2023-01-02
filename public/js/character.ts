@@ -19,7 +19,7 @@ function makePlayer() {
 
 class Player {
     public record: number[];
-    public speed = 5;
+    public speed = 3;
     public interval = 0;
 
     constructor(
@@ -42,15 +42,23 @@ class Player {
 
     public movePlayer() {
         this.interval = setInterval(() => {
-            if(keyStates.right) x_pos += this.speed;
-            else if(keyStates.left) x_pos -= this.speed;
+            if(keyStates.right) this.x_pos += this.speed;
+            else if(keyStates.left) this.x_pos -= this.speed;
     
-            if(keyStates.up) y_pos -= this.speed;
-            else if(keyStates.down) y_pos += this.speed;
-    
+            if(keyStates.up) this.y_pos -= this.speed;
+            else if(keyStates.down) this.y_pos += this.speed;
+
+            if(this.x_pos < 24) this.x_pos = 24;
+            else if(this.x_pos > window.innerWidth - 24)
+                this.x_pos = window.innerWidth - 24;
+
+            if(this.y_pos < 24) this.y_pos = 24;
+            else if(this.y_pos > window.innerHeight - 24)
+                this.y_pos = window.innerHeight - 24;
+
             if(circle) {
-                circle.style.left = `${x_pos}px`;
-                circle.style.top = `${y_pos}px`;    
+                circle.style.left = `${this.x_pos}px`;
+                circle.style.top = `${this.y_pos}px`;    
             }    
         }, 10);
     }

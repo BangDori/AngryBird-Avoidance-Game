@@ -17,7 +17,7 @@ class Player {
         this.name = name;
         this.x_pos = x_pos;
         this.y_pos = y_pos;
-        this.speed = 5;
+        this.speed = 3;
         this.interval = 0;
         this.record = [];
     }
@@ -31,16 +31,24 @@ class Player {
     movePlayer() {
         this.interval = setInterval(() => {
             if (keyStates.right)
-                x_pos += this.speed;
+                this.x_pos += this.speed;
             else if (keyStates.left)
-                x_pos -= this.speed;
+                this.x_pos -= this.speed;
             if (keyStates.up)
-                y_pos -= this.speed;
+                this.y_pos -= this.speed;
             else if (keyStates.down)
-                y_pos += this.speed;
+                this.y_pos += this.speed;
+            if (this.x_pos < 24)
+                this.x_pos = 24;
+            else if (this.x_pos > window.innerWidth - 24)
+                this.x_pos = window.innerWidth - 24;
+            if (this.y_pos < 24)
+                this.y_pos = 24;
+            else if (this.y_pos > window.innerHeight - 24)
+                this.y_pos = window.innerHeight - 24;
             if (circle) {
-                circle.style.left = `${x_pos}px`;
-                circle.style.top = `${y_pos}px`;
+                circle.style.left = `${this.x_pos}px`;
+                circle.style.top = `${this.y_pos}px`;
             }
         }, 10);
     }
