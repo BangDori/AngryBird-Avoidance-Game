@@ -13,7 +13,7 @@ function makePlayer() {
 
 class Player {
     public record: number[];
-    public speed = 3;
+    public speed = 4;
     public interval = 0;
 
     constructor(

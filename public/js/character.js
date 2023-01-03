@@ -13,7 +13,7 @@ class Player {
         this.name = name;
         this.x_pos = x_pos;
         this.y_pos = y_pos;
-        this.speed = 3;
+        this.speed = 4;
         this.interval = 0;
         this.record = [];
     }

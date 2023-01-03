@@ -17,15 +17,15 @@ class Monster implements MonsterInfo {
         public name: string,
     ) {
         if(type === 'monsterA') {
-            this.speed = 12;
+            this.speed = 7;
             this.size = 30;
         }
         else if(type === 'monsterB') {
-            this.speed = 8;
+            this.speed = 5;
             this.size = 22.5;
         }
         else if(type === 'monsterC') {
-            this.speed = 5;
+            this.speed = 4;
             this.size = 17.5;
         }
         else {
@@ -102,14 +102,17 @@ class Monsters {
         else if(monster.type === 'monsterD') this.dCount++;
 
         moveMonster(monster);
+        this.checkMonster(monster);
 
         this.monsters.push(monster);
         this.count++;
+    }
 
-        if(this.aCount >= 5) clearInterval(monsterA);
-        else if(this.bCount >= 8) clearInterval(monsterB);
-        else if(this.cCount >= 10) clearInterval(monsterC);
-        else if(this.dCount >= 15) clearInterval(monsterD);
+    public checkMonster(monster: Monster) {
+        if(this.aCount >= 1) clearInterval(monsterA);
+        if(this.bCount >= 2) clearInterval(monsterB);
+        if(this.cCount >= 5) clearInterval(monsterC);
+        if(this.dCount >= 10) clearInterval(monsterD);
     }
 
     public getMonsters() {

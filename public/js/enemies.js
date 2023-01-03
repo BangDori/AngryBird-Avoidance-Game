@@ -9,15 +9,15 @@ class Monster {
         this.y_dir = 0;
         this.interval = 0;
         if (type === 'monsterA') {
-            this.speed = 12;
+            this.speed = 7;
             this.size = 30;
         }
         else if (type === 'monsterB') {
-            this.speed = 8;
+            this.speed = 5;
             this.size = 22.5;
         }
         else if (type === 'monsterC') {
-            this.speed = 5;
+            this.speed = 4;
             this.size = 17.5;
         }
         else {
@@ -85,15 +85,22 @@ class Monsters {
         else if (monster.type === 'monsterD')
             this.dCount++;
         moveMonster(monster);
+        this.checkMonster(monster);
         this.monsters.push(monster);
         this.count++;
-        if (this.aCount >= 5)
+        console.log(`monsterA = ${this.aCount}`);
+        console.log(`monsterB = ${this.bCount}`);
+        console.log(`monsterC = ${this.cCount}`);
+        console.log(`monsterD = ${this.dCount}`);
+    }
+    checkMonster(monster) {
+        if (this.aCount >= 1)
             clearInterval(monsterA);
-        else if (this.bCount >= 8)
+        if (this.bCount >= 2)
             clearInterval(monsterB);
-        else if (this.cCount >= 10)
+        if (this.cCount >= 5)
             clearInterval(monsterC);
-        else if (this.dCount >= 15)
+        if (this.dCount >= 10)
             clearInterval(monsterD);
     }
     getMonsters() {
