@@ -4,11 +4,8 @@ var x_pos, y_pos;
 // Player 명 작성
 let player;
 function makePlayer() {
-    var bodyRect = document.body.getBoundingClientRect(), circleRect = circle === null || circle === void 0 ? void 0 : circle.getBoundingClientRect();
-    if (circleRect instanceof DOMRect) {
-        y_pos = circleRect.top - bodyRect.top;
-        x_pos = circleRect.left - bodyRect.left;
-    }
+    x_pos = window.innerWidth / 2;
+    y_pos = window.innerHeight / 2;
     player = new Player(`${document.querySelector("#username").value}`, x_pos, y_pos);
 }
 class Player {

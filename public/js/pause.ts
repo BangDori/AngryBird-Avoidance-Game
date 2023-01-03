@@ -6,12 +6,9 @@ function clickPause() {
 }
 
 function goHome() {
-    var nextSibling = menu?.nextElementSibling;
-    while(nextSibling?.classList.contains(NONE))  {
-        nextSibling = nextSibling.nextElementSibling;
-    }
+    if(!start?.classList.contains(NONE)) start?.classList.add(NONE);
+    else if(!record?.classList.contains(NONE)) record?.classList.add(NONE);
 
-    nextSibling?.classList.add(NONE);
     menu?.classList.remove(NONE);
     resetTimer();
     circle?.classList.add(HIDDEN);
@@ -22,6 +19,7 @@ function reStart() {
     if(died === true) {
         resetTimer();
         died = false;
+        makePlayer();
     }
 
     interval = setInterval(startTimer, 1000);

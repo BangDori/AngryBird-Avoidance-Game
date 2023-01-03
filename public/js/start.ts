@@ -9,8 +9,9 @@ function startGame() {
     }, 800)
 
     interval = setInterval(() => { startTimer(); }, 1000);
-    startEnemies();
+    makePlayer();
     player.movePlayer();
+    startEnemies();
 }
 
 function openHistory() {

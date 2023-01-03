@@ -5,13 +5,8 @@ var x_pos:number, y_pos:number;
 let player: Player;
 
 function makePlayer() {    
-    var bodyRect = document.body.getBoundingClientRect(),
-        circleRect = circle?.getBoundingClientRect();
-
-    if(circleRect instanceof DOMRect) {
-        y_pos = circleRect.top - bodyRect.top;
-        x_pos = circleRect.left - bodyRect.left;
-    }
+    x_pos = window.innerWidth / 2;
+    y_pos = window.innerHeight / 2;
 
     player = new Player(`${(<HTMLInputElement>document.querySelector("#username")).value}`, x_pos, y_pos);
 }

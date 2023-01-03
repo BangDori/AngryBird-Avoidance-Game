@@ -17,19 +17,19 @@ class Monster implements MonsterInfo {
         public name: string,
     ) {
         if(type === 'monsterA') {
-            this.speed = 8;
+            this.speed = 12;
             this.size = 30;
         }
         else if(type === 'monsterB') {
-            this.speed = 5;
+            this.speed = 8;
             this.size = 22.5;
         }
         else if(type === 'monsterC') {
-            this.speed = 3;
+            this.speed = 5;
             this.size = 17.5;
         }
         else {
-            this.speed = 2;
+            this.speed = 3;
             this.size = 15;
         }
 
@@ -85,6 +85,10 @@ class Monster implements MonsterInfo {
 class Monsters {
     private monsters: Monster[]
     private count: number;
+    private aCount = 0;
+    private bCount = 0;
+    private cCount = 0;
+    private dCount = 0;
 
     constructor() {
         this.monsters = [];
@@ -92,10 +96,20 @@ class Monsters {
     }
 
     public addMonster(monster: Monster) {
+        if(monster.type === 'monsterA') this.aCount++;
+        else if(monster.type === 'monsterB') this.bCount++;
+        else if(monster.type === 'monsterC') this.cCount++;
+        else if(monster.type === 'monsterD') this.dCount++;
+
         moveMonster(monster);
 
         this.monsters.push(monster);
         this.count++;
+
+        if(this.aCount >= 10) clearInterval(monsterA);
+        else if(this.bCount >= 10) clearInterval(monsterB);
+        else if(this.cCount >= 15) clearInterval(monsterC);
+        else if(this.dCount >= 15) clearInterval(monsterD);
     }
 
     public getMonsters() {
@@ -104,6 +118,15 @@ class Monsters {
     
     public getCount() {
         return this.count;
+    }
+
+    public resetMonsters() {
+        this.monsters = [];
+        this.count = 0;
+        this.aCount = 0;
+        this.bCount = 0;
+        this.cCount = 0;
+        this.dCount = 0;
     }
 }
 
@@ -122,7 +145,9 @@ function startEnemies() {
         monster = monster.nextElementSibling;
     }
 
-    monsters.getMonsters().map((monster) => moveMonster(monster));
+    monsters.getMonsters().map((monster) => {
+        moveMonster(monster);
+    });
 
     monsterA = setInterval(() => {
         createMonster("monsterA");
@@ -163,6 +188,8 @@ function resetEnemies() {
     while(enemies?.firstChild) {
         enemies.firstChild.remove();
     }
+
+    monsters.resetMonsters();
 }
 
 function createRandomMonster(type: string) {

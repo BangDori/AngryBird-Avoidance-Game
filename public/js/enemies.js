@@ -9,19 +9,19 @@ class Monster {
         this.y_dir = 0;
         this.interval = 0;
         if (type === 'monsterA') {
-            this.speed = 8;
+            this.speed = 12;
             this.size = 30;
         }
         else if (type === 'monsterB') {
-            this.speed = 5;
+            this.speed = 8;
             this.size = 22.5;
         }
         else if (type === 'monsterC') {
-            this.speed = 3;
+            this.speed = 5;
             this.size = 17.5;
         }
         else {
-            this.speed = 2;
+            this.speed = 3;
             this.size = 15;
         }
         this.makeHTMLEnemy();
@@ -68,19 +68,47 @@ class Monster {
 }
 class Monsters {
     constructor() {
+        this.aCount = 0;
+        this.bCount = 0;
+        this.cCount = 0;
+        this.dCount = 0;
         this.monsters = [];
         this.count = 0;
     }
     addMonster(monster) {
+        if (monster.type === 'monsterA')
+            this.aCount++;
+        else if (monster.type === 'monsterB')
+            this.bCount++;
+        else if (monster.type === 'monsterC')
+            this.cCount++;
+        else if (monster.type === 'monsterD')
+            this.dCount++;
         moveMonster(monster);
         this.monsters.push(monster);
         this.count++;
+        if (this.aCount >= 10)
+            clearInterval(monsterA);
+        else if (this.bCount >= 10)
+            clearInterval(monsterB);
+        else if (this.cCount >= 15)
+            clearInterval(monsterC);
+        else if (this.dCount >= 15)
+            clearInterval(monsterD);
     }
     getMonsters() {
         return [...this.monsters];
     }
     getCount() {
         return this.count;
+    }
+    resetMonsters() {
+        this.monsters = [];
+        this.count = 0;
+        this.aCount = 0;
+        this.bCount = 0;
+        this.cCount = 0;
+        this.dCount = 0;
     }
 }
 const enemies = document.querySelector("#enemies");
@@ -95,7 +123,9 @@ function startEnemies() {
         monster.classList.add("rotate");
         monster = monster.nextElementSibling;
     }
-    monsters.getMonsters().map((monster) => moveMonster(monster));
+    monsters.getMonsters().map((monster) => {
+        moveMonster(monster);
+    });
     monsterA = setInterval(() => {
         createMonster("monsterA");
     }, Math.floor(Math.random() * 3000 + 10000));
@@ -127,6 +157,7 @@ function resetEnemies() {
     while (enemies === null || enemies === void 0 ? void 0 : enemies.firstChild) {
         enemies.firstChild.remove();
     }
+    monsters.resetMonsters();
 }
 function createRandomMonster(type) {
     // 한번씩 엄청 큰, 혹은 엄청 빠른 몬스터 소환해서 지나가게끔

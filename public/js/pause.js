@@ -6,11 +6,10 @@ function clickPause() {
     clearInterval(player.interval);
 }
 function goHome() {
-    var nextSibling = menu === null || menu === void 0 ? void 0 : menu.nextElementSibling;
-    while (nextSibling === null || nextSibling === void 0 ? void 0 : nextSibling.classList.contains(NONE)) {
-        nextSibling = nextSibling.nextElementSibling;
-    }
-    nextSibling === null || nextSibling === void 0 ? void 0 : nextSibling.classList.add(NONE);
+    if (!(start === null || start === void 0 ? void 0 : start.classList.contains(NONE)))
+        start === null || start === void 0 ? void 0 : start.classList.add(NONE);
+    else if (!(record === null || record === void 0 ? void 0 : record.classList.contains(NONE)))
+        record === null || record === void 0 ? void 0 : record.classList.add(NONE);
     menu === null || menu === void 0 ? void 0 : menu.classList.remove(NONE);
     resetTimer();
     circle === null || circle === void 0 ? void 0 : circle.classList.add(HIDDEN);
@@ -20,6 +19,7 @@ function reStart() {
     if (died === true) {
         resetTimer();
         died = false;
+        makePlayer();
     }
     interval = setInterval(startTimer, 1000);
     startEnemies();
