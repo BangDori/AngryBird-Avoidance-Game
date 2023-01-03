@@ -1,7 +1,7 @@
 {
-  "name": "AngryBirdAvoidanceGame",
+  "name": "angrybirdavoidancegame",
   "version": "1.0.0",
-  "description": "",
+  "description": "AngryBird avoidance web game using your keyboard directions",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

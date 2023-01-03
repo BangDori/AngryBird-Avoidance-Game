@@ -20,9 +20,17 @@ class Monster {
             this.speed = 4;
             this.size = 17.5;
         }
-        else {
+        else if (type === 'monsterD') {
             this.speed = 3;
             this.size = 15;
+        }
+        else if (type === 'monsterE' || type === 'monsterF') {
+            this.speed = Math.floor(Math.random() * 3 + 3);
+            // this.size = Math.floor(Math.random() * 15);
+        }
+        else if (type === 'boss') {
+            this.speed = Math.floor(Math.random() * 3 + 1);
+            // this.size = Math.floor(Math.random() * 200 + 100) / 2;
         }
         this.makeHTMLEnemy();
         monsters.addMonster(this);
@@ -32,6 +40,19 @@ class Monster {
         enemy.id = this.name;
         enemy.classList.add(`${this.type}`);
         enemy.classList.add("rotate");
+        if (this.type === 'monsterE' || this.type === 'monsterF') {
+            this.size = 12.5;
+            enemy.style.width = `${this.size * 2}px`;
+        }
+        else if (this.type === 'boss') {
+            const random_boss = ['monsterA', 'monsterB', 'monsterC', 'monsterD', 'monsterE', 'monsterF', 'boss'];
+            this.type = random_boss[Math.floor(Math.random() * 7)];
+            this.size = (boss_size) / 2;
+            enemy.style.width = `${this.size * 2}px`;
+            setTimeout(() => {
+                enemies === null || enemies === void 0 ? void 0 : enemies.removeChild(document.querySelector(`#${this.name}`));
+            }, 7000);
+        }
         enemy.src = `img/${this.type}.png`;
         this.makeStartPosition(enemy);
     }
@@ -40,20 +61,20 @@ class Monster {
         const loc = startPosition[Math.floor(Math.random() * 4)];
         enemy.style.position = "absolute";
         if (loc === 'top') {
-            this.x_pos = Math.floor(Math.random() * (window.innerWidth - 50));
+            this.x_pos = Math.floor(Math.random() * (window.innerWidth - this.size));
             this.y_pos = 0;
         }
         else if (loc === 'bottom') {
-            this.x_pos = Math.floor(Math.random() * (window.innerWidth - 50));
-            this.y_pos = window.innerHeight - 50;
+            this.x_pos = Math.floor(Math.random() * (window.innerWidth - this.size));
+            this.y_pos = window.innerHeight - this.size;
         }
         else if (loc === 'left') {
             this.x_pos = 0;
-            this.y_pos = Math.floor(Math.random() * (window.innerHeight - 50));
+            this.y_pos = Math.floor(Math.random() * (window.innerHeight - this.size));
         }
         else {
-            this.x_pos = window.innerWidth - 50;
-            this.y_pos = Math.floor(Math.random() * (window.innerHeight - 50));
+            this.x_pos = window.innerWidth - this.size;
+            this.y_pos = Math.floor(Math.random() * (window.innerHeight - this.size));
         }
         enemy.style.top = `${this.y_pos}px`;
         enemy.style.left = `${this.x_pos}px`;
@@ -88,10 +109,6 @@ class Monsters {
         this.checkMonster(monster);
         this.monsters.push(monster);
         this.count++;
-        console.log(`monsterA = ${this.aCount}`);
-        console.log(`monsterB = ${this.bCount}`);
-        console.log(`monsterC = ${this.cCount}`);
-        console.log(`monsterD = ${this.dCount}`);
     }
     checkMonster(monster) {
         if (this.aCount >= 1)
@@ -124,6 +141,9 @@ let monsterA;
 let monsterB;
 let monsterC;
 let monsterD;
+let random_monster;
+let boss_monster;
+let boss_size = 100;
 function startEnemies() {
     let monster = enemies === null || enemies === void 0 ? void 0 : enemies.firstElementChild;
     while (monster) {
@@ -145,6 +165,14 @@ function startEnemies() {
     monsterD = setInterval(() => {
         createMonster("monsterD");
     }, Math.floor(Math.random() * 2000 + 1000));
+    random_monster = setInterval(() => {
+        const random_type = ["monsterE", "monsterF"];
+        createMonster(`${random_type[Math.floor(Math.random() * 2)]}`);
+    }, 10000);
+    boss_monster = setInterval(() => {
+        createMonster("boss");
+        boss_size += 30;
+    }, 20000);
 }
 function stopEnemies() {
     let monster = enemies === null || enemies === void 0 ? void 0 : enemies.firstElementChild;
@@ -156,6 +184,8 @@ function stopEnemies() {
     clearInterval(monsterB);
     clearInterval(monsterC);
     clearInterval(monsterD);
+    clearInterval(random_monster);
+    clearInterval(boss_monster);
     monsters.getMonsters().forEach((monster) => {
         clearInterval(monster.interval);
     });
@@ -180,10 +210,10 @@ function moveMonster(monster) {
         x_pos = monRect.left - bodyRect.left;
     }
     monster.interval = setInterval(() => {
-        if (x_pos + monster.x_dir < 0 || x_pos + monster.x_dir > window.innerWidth) {
+        if (x_pos + monster.x_dir < 0 || x_pos + monster.x_dir > window.innerWidth - monster.size) {
             monster.x_dir *= -1;
         }
-        if (y_pos + monster.y_dir < 0 || y_pos + monster.y_dir > window.innerHeight) {
+        if (y_pos + monster.y_dir < 0 || y_pos + monster.y_dir > window.innerHeight - monster.size) {
             monster.y_dir *= -1;
         }
         x_pos += monster.x_dir;
@@ -193,8 +223,8 @@ function moveMonster(monster) {
         let x_dis = (x_pos + monster.size) - player.x_pos;
         let y_dis = (y_pos + monster.size) - player.y_pos;
         let distance = x_dis * x_dis + y_dis * y_dis;
-        if (Math.sqrt(distance) <= Math.floor(monster.size) + 1) {
-            dieGamer();
+        if (Math.sqrt(distance) <= Math.floor(monster.size)) {
+            // dieGamer();
         }
     }, 10);
 }
