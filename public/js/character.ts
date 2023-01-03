@@ -56,6 +56,11 @@ class Player {
             }    
         }, 10);
     }
+
+    public resetPlayerPosition() {
+        this.x_pos = window.innerWidth / 2;
+        this.y_pos = window.innerHeight / 2;
+    }
 }
 
 var keyStates = {

@@ -1,5 +1,6 @@
 "use strict";
 function clickPause() {
+    console.log(player);
     modal === null || modal === void 0 ? void 0 : modal.classList.remove(NONE);
     stopTimer();
     stopEnemies();
@@ -14,12 +15,13 @@ function goHome() {
     resetTimer();
     circle === null || circle === void 0 ? void 0 : circle.classList.add(HIDDEN);
     resetEnemies();
+    lock = false;
 }
 function reStart() {
     if (died === true) {
         resetTimer();
+        player.resetPlayerPosition();
         died = false;
-        makePlayer();
     }
     interval = setInterval(startTimer, 1000);
     startEnemies();

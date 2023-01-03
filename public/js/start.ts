@@ -9,7 +9,7 @@ function startGame() {
     }, 800)
 
     interval = setInterval(() => { startTimer(); }, 1000);
-    makePlayer();
+    player.resetPlayerPosition();
     player.movePlayer();
     startEnemies();
 }

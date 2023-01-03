@@ -87,11 +87,11 @@ class Monsters {
         moveMonster(monster);
         this.monsters.push(monster);
         this.count++;
-        if (this.aCount >= 10)
+        if (this.aCount >= 5)
             clearInterval(monsterA);
-        else if (this.bCount >= 10)
+        else if (this.bCount >= 8)
             clearInterval(monsterB);
-        else if (this.cCount >= 15)
+        else if (this.cCount >= 10)
             clearInterval(monsterC);
         else if (this.dCount >= 15)
             clearInterval(monsterD);

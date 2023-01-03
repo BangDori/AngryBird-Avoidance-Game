@@ -4,8 +4,14 @@ pause = document.querySelector(".pause"), modal = document.querySelector(".js-mo
 const ANI = "animation";
 const NONE = "none";
 const HIDDEN = "hidden";
+let lock = false;
 function init() {
-    start_button === null || start_button === void 0 ? void 0 : start_button.addEventListener("click", startGame);
+    start_button === null || start_button === void 0 ? void 0 : start_button.addEventListener("click", () => {
+        if (lock === false) {
+            lock = true;
+            startGame();
+        }
+    });
     history_button === null || history_button === void 0 ? void 0 : history_button.addEventListener("click", openHistory);
     pause === null || pause === void 0 ? void 0 : pause.addEventListener("click", clickPause);
     restart === null || restart === void 0 ? void 0 : restart.addEventListener("click", () => {
@@ -29,7 +35,6 @@ function init() {
             e.stopPropagation();
         }
     });
-    makePlayer();
     // window?.addEventListener("keydown", Player.movePlayer);
     window === null || window === void 0 ? void 0 : window.addEventListener("keydown", (e) => {
         updateKeyStates(e.key, true);
@@ -37,5 +42,6 @@ function init() {
     window === null || window === void 0 ? void 0 : window.addEventListener("keyup", (e) => {
         updateKeyStates(e.key, false);
     });
+    makePlayer();
 }
 init();

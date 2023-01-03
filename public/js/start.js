@@ -8,7 +8,7 @@ function startGame() {
         circle === null || circle === void 0 ? void 0 : circle.classList.remove(HIDDEN);
     }, 800);
     interval = setInterval(() => { startTimer(); }, 1000);
-    makePlayer();
+    player.resetPlayerPosition();
     player.movePlayer();
     startEnemies();
 }

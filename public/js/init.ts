@@ -14,8 +14,15 @@ const ANI = "animation";
 const NONE = "none";
 const HIDDEN = "hidden";
 
+let lock = false;
+
 function init() {
-    start_button?.addEventListener("click", startGame);
+    start_button?.addEventListener("click", () => {
+        if(lock === false) {
+            lock = true;
+            startGame();
+        }
+    });
     history_button?.addEventListener("click", openHistory);
     pause?.addEventListener("click", clickPause);
     restart?.addEventListener("click", () => {
@@ -41,7 +48,6 @@ function init() {
             e.stopPropagation();    
         }
     });
-    makePlayer();
     // window?.addEventListener("keydown", Player.movePlayer);
     window?.addEventListener("keydown", (e) => {
         updateKeyStates(e.key, true);
@@ -49,6 +55,7 @@ function init() {
     window?.addEventListener("keyup", (e) => {
         updateKeyStates(e.key, false);
     })
+    makePlayer();
 }
 
 init();
