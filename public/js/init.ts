@@ -1,7 +1,7 @@
 const menu = document.querySelector("#menu"),
-    start_button = menu?.querySelector(".start"),
+    start_button = menu?.querySelector("#start_button"),
     start = document.querySelector("#start"),
-    history_button = menu?.querySelector(".history"),
+    history_button = menu?.querySelector("#history_button"),
     record = document.querySelector("#history"), // history
     pause = document.querySelector(".pause"),
     modal = document.querySelector(".js-modal"),

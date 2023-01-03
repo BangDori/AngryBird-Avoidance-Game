@@ -1,5 +1,5 @@
 "use strict";
-const menu = document.querySelector("#menu"), start_button = menu === null || menu === void 0 ? void 0 : menu.querySelector(".start"), start = document.querySelector("#start"), history_button = menu === null || menu === void 0 ? void 0 : menu.querySelector(".history"), record = document.querySelector("#history"), // history
+const menu = document.querySelector("#menu"), start_button = menu === null || menu === void 0 ? void 0 : menu.querySelector("#start_button"), start = document.querySelector("#start"), history_button = menu === null || menu === void 0 ? void 0 : menu.querySelector("#history_button"), record = document.querySelector("#history"), // history
 pause = document.querySelector(".pause"), modal = document.querySelector(".js-modal"), restart = document.querySelector(".restart"), home = document.querySelectorAll(".home"), join = document.querySelector("#join"), direction = document.querySelector(".wrapper");
 const ANI = "animation";
 const NONE = "none";

@@ -48,10 +48,10 @@ class Monster {
             const random_boss = ['monsterA', 'monsterB', 'monsterC', 'monsterD', 'monsterE', 'monsterF', 'boss'];
             this.type = random_boss[Math.floor(Math.random() * 7)];
             this.size = (boss_size) / 2;
-            enemy.style.width = `${this.size * 2}px`;
+            enemy.style.width = `${boss_size}px`;
             setTimeout(() => {
                 enemies === null || enemies === void 0 ? void 0 : enemies.removeChild(document.querySelector(`#${this.name}`));
-            }, 7000);
+            }, 10000);
         }
         enemy.src = `img/${this.type}.png`;
         this.makeStartPosition(enemy);
@@ -224,7 +224,7 @@ function moveMonster(monster) {
         let y_dis = (y_pos + monster.size) - player.y_pos;
         let distance = x_dis * x_dis + y_dis * y_dis;
         if (Math.sqrt(distance) <= Math.floor(monster.size)) {
-            // dieGamer();
+            dieGamer();
         }
     }, 10);
 }

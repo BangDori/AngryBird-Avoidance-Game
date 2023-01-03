@@ -54,11 +54,11 @@ class Monster implements MonsterInfo {
             const random_boss = ['monsterA', 'monsterB', 'monsterC', 'monsterD', 'monsterE', 'monsterF', 'boss'];
             this.type = random_boss[Math.floor(Math.random() * 7)];
             this.size = (boss_size) / 2;
-            enemy.style.width = `${this.size * 2}px`;
+            enemy.style.width = `${boss_size}px`;
 
             setTimeout(() => {
                 enemies?.removeChild(document.querySelector(`#${this.name}`)!);
-            }, 7000)
+            }, 10000)
         }
 
         enemy.src = `img/${this.type}.png`;
@@ -269,7 +269,7 @@ function moveMonster(monster: Monster) {
         let distance = x_dis * x_dis + y_dis * y_dis;
 
         if(Math.sqrt(distance) <= Math.floor(monster.size!)) {
-            // dieGamer();
+            dieGamer();
         }
     }, 10)
 }
