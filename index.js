@@ -48,14 +48,14 @@ app.set("view engine", "html");
 app.set("views", path.join(__dirname, "/public/views"));
 
 router.get("/", (req, res) => {
-    res.render("login");
+    res.render("index");
 })
 
-router.post("/index", (req, res) => {
-    const name = req.body.name;
+// router.post("/index", (req, res) => {
+//     const name = req.body.name;
 
-    res.render("index", { user_name: name})
-})
+//     res.render("index", { user_name: name})
+// })
 
 app.use("/", router);
 app.listen(port);

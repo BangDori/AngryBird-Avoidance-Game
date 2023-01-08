@@ -6,7 +6,7 @@ let player;
 function makePlayer() {
     x_pos = window.innerWidth / 2;
     y_pos = window.innerHeight / 2;
-    player = new Player(`${document.querySelector("#username").value}`, x_pos, y_pos);
+    player = new Player("Player", x_pos, y_pos);
 }
 class Player {
     constructor(name, x_pos, y_pos) {
