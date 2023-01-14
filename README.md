@@ -4,6 +4,9 @@ AngryBird avoidance web game using your keyboard directions
 ## Languages
 HTML, CSS, TypeScript, NodeJS
 
+## WebSite URL
+https://angrybird-avoidance.netlify.app/
+
 ## Setting Modules
 ~~~
 > npm init -y
