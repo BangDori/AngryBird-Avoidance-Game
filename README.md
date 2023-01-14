@@ -1,8 +1,8 @@
 # AngryBird Avoidance Game
 AngryBird avoidance web game using your keyboard directions
 
-## Tools
-Visual Studio Code, Node.js
+## Languages
+HTML, CSS, TypeScript, NodeJS
 
 ## Setting Modules
 ~~~
